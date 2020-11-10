@@ -2,6 +2,7 @@
 
 namespace Openpesa\Pesa;
 
+use Openpesa\SDK\Pesa as PesaSDK;
 use Illuminate\Support\Traits\Macroable;
 
 
@@ -14,7 +15,7 @@ class Pesa
     /**
      * @param Pesa $pesa
      */
-    function __construct(Pesa $pesa)
+    function __construct(PesaSDK $pesa)
     {
         $this->pesa = $pesa;
     }
