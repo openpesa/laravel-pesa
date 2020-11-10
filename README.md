@@ -10,7 +10,6 @@ Begin by adding in the package through Composer.
 composer require openpesa/laravel-pesa
 ```
 
-
 If you need to modify the configuations, you can run:
 
 ```sh
@@ -24,22 +23,23 @@ php artisan vendor:publish --provider="Openpesa\PesaServiceProvider"
 Within your controllers, before you perform a redirect, make a call to the `pesa()` function.
 
 ```php
+use Openpesa\Pesa\PesaFacade as Pesa;
+// ...
 public function store()
 {
     $data = [
         'input_Amount'=>5000,
         // ...
     ];
-
     try {
-        pesa()->c2b($data);
+        $res = Pesa::c2b($data);
+        var_dump($res);
     } catch(\Throwable $th) {
     }
 
     return back();
 }
 ```
-
 
 ### Security
 
