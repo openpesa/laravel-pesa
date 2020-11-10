@@ -30,10 +30,10 @@ class PesaServiceProvider extends ServiceProvider
             if (is_null($public_key))  throw new Exception("InvalidConfiguration: PUBLIC KEY is required");
             if (is_null($apikey)) throw new Exception("InvalidConfiguration: API KEY is required");
 
-            return new Pesa(new PesaSDK([
+            return new PesaSDK([
                 'api_key' => $apikey,
                 'public_key' => $public_key,
-            ]));
+            ]);
         });
     }
 
@@ -44,9 +44,5 @@ class PesaServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
-        $this->publishes([
-            __DIR__ . '/../config/laravel-pesa.php' => config_path('laravel-pesa.php'),
-        ], 'config');
     }
 }

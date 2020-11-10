@@ -1,10 +1,10 @@
 <?php
 
-namespace Openpesa\Pesa;
+namespace Openpesa\Pesa\Facade;
 
 use Illuminate\Support\Facades\Facade;
 
-class PesaFacade extends Facade
+class Pesa extends Facade
 {
     /**
      * Get the binding in the IoC container
