@@ -1,23 +1,27 @@
 # Laravel Pesa
 
-
-
-This composer package offers a OpenAPI easy intergation for your Laravel applications.
+Easy intergation Mpesa OpenAPI in your Laravel applications.
 
 ## Installation
 
-Begin by pulling in the package through Composer.
+Begin by adding in the package through Composer.
 
-```bash
+```sh
 composer require openpesa/laravel-pesa
 ```
 
+
+If you need to modify the configuations, you can run:
+
+```sh
+php artisan vendor:publish --provider="Openpesa\PesaServiceProvider"
+```
 
 ## Usage
 
 ### Simple usage example
 
-Within your controllers, before you perform a redirect, make a call to the `forodha()` function.
+Within your controllers, before you perform a redirect, make a call to the `pesa()` function.
 
 ```php
 public function store()
@@ -26,21 +30,14 @@ public function store()
         'input_Amount'=>5000,
         // ...
     ];
-    
+
     try {
-        forodha()->transact('c2b',$data);
-    } catch(\Throwable $th) {        
+        pesa()->c2b($data);
+    } catch(\Throwable $th) {
     }
 
-    return home();
+    return back();
 }
-```
-
-
-If you need to modify the configuations, you can run:
-
-```bash
-php artisan vendor:publish --provider="Openpesa\ForodhaServiceProvider"
 ```
 
 
@@ -48,8 +45,6 @@ php artisan vendor:publish --provider="Openpesa\ForodhaServiceProvider"
 
 If you discover any security related issues, please email [alphaolomi@gmail.com](mailto:alphaolomi@gmail.com) instead of using the issue tracker.
 
-
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-

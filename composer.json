@@ -1,56 +1,59 @@
 {
-    "name": "openpesa/laravel-pesa",
-    "description": "Easy OpenAPI integration for Laravel Apps",
-    "license": "MIT",
-    "homepage": "https://github.com/openpesa/laravel-pesa",
-    "type": "library",
-    "authors": [
-        {
-            "name": "Alpha Olomi",
-            "email": "alphaolomi@gmail.com",
-            "role": "Developer"
-        },
-        {
-            "name": "Leylow Lujuo",
-            "email": "leyluj21@gmail.com",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": "^7.1",
-        "illuminate/support": "~5.0|^6.0|^7.0|^8.0",
-        "openpesa/pesa": "^0.0.2"
+  "name": "openpesa/laravel-pesa",
+  "description": "Easy OpenAPI integration for Laravel Apps",
+  "license": "MIT",
+  "homepage": "https://github.com/openpesa/laravel-pesa",
+  "type": "library",
+  "support": {
+    "issues": "https://github.com/openpesa/laravel-pesa/issues",
+    "source": "https://github.com/openpesa/laravel-pesa"
+  },
+  "authors": [
+    {
+      "name": "Alpha Olomi",
+      "email": "alphaolomi@gmail.com",
+      "role": "Developer"
     },
-    "require-dev": {        
-        "phpunit/phpunit": "^7.1",
-        "mockery/mockery": "^1.3.1"
-    },
-    "autoload": {
-        "psr-0": {
-            "Openpesa\\Forodha": "src/"
-        },
-        "files": [
-            "src/Openpesa/Forodha/functions.php"
-        ]
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Openpesa\\Forodha\\Tests\\": "tests"
-        }
-    },
-    "minimum-stability": "stable",
-
-    "scripts": {
-        "test": "vendor/bin/phpunit"
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Openpesa\\Forodha\\ForodhaServiceProvider"
-            ],
-            "aliases": {
-                "Forodha": "Openpesa\\Forodha\\Forodha"
-            }
-        }
+    {
+      "name": "Leylow Lujuo",
+      "email": "leyluj21@gmail.com",
+      "role": "Developer"
     }
+  ],
+  "require": {
+    "php": "^7.1",
+    "illuminate/support": "^7.0|^8.0",
+    "openpesa/pesa": "dev-develop"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.1",
+    "mockery/mockery": "^1.3.1"
+  },
+  "autoload": {
+    "psr-0": {
+      "Openpesa\\Pesa": "src/"
+    },
+    "files": [
+      "src/Openpesa/Pesa/functions.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Openpesa\\Pesa\\Tests\\": "tests"
+    }
+  },
+  "minimum-stability": "stable",
+  "scripts": {
+    "test": "vendor/bin/phpunit"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Openpesa\\Pesa\\PesaServiceProvider"
+      ],
+      "aliases": {
+        "Pesa": "Openpesa\\Pesa\\Pesa"
+      }
+    }
+  }
 }

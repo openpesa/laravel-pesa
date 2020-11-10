@@ -1,10 +1,10 @@
 <?php
 
-namespace Openpesa\Forodha;
+namespace Openpesa\Pesa;
 
 use Illuminate\Support\Facades\Facade;
 
-class Forodha extends Facade
+class PesaFacade extends Facade
 {
     /**
      * Get the binding in the IoC container
@@ -13,6 +13,6 @@ class Forodha extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'forodha';
+        return 'pesa';
     }
 }

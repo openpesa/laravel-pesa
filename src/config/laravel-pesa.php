@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Openpesa Config
+    | Larvavel Openpesa Config
     |--------------------------------------------------------------------------
     |
     | This file is for storing the credentials for OpenAPI services such

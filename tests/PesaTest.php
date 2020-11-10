@@ -1,10 +1,10 @@
 <?php
 
-namespace Openpesa\Forodha\Tests;
+namespace Openpesa\Pesa\Tests;
 
 use PHPUnit\Framework\TestCase;
 
-class ForodhaTest extends TestCase
+class PesaTest extends TestCase
 {
 
     /** @test */
