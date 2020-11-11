@@ -1,6 +1,6 @@
 <?php
 
-namespace Openpesa\Pesa\Facade;
+namespace Openpesa\Pesa\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

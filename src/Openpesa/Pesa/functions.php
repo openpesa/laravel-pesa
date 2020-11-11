@@ -7,7 +7,7 @@ if (!function_exists('pesa')) {
      */
     function pesa()
     {
-        return app('Pesa');
+        return app('pesa');
     }
 
 }
