@@ -3,19 +3,13 @@
 namespace Openpesa\Pesa;
 
 use Exception;
-use Openpesa\SDK\Pesa as PesaSDK;
+use Openpesa\SDK\Pesa;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 
 class PesaServiceProvider extends ServiceProvider
 {
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = false;
-
+    
     /**
      * Register the service provider.
      *
@@ -26,14 +20,16 @@ class PesaServiceProvider extends ServiceProvider
         $this->app->singleton('pesa', function () {
             $public_key = Config::get('services.pesa.public_key');
             $apikey = Config::get('services.pesa.api_key');
+            $env = Config::get('services.pesa.env');
 
             if (is_null($public_key))  throw new Exception("InvalidConfiguration: PUBLIC KEY is required");
             if (is_null($apikey)) throw new Exception("InvalidConfiguration: API KEY is required");
 
-            return new Pesa(new PesaSDK([
+            return new Pesa([
                 'api_key' => $apikey,
                 'public_key' => $public_key,
-            ]));
+                'env' => $env
+            ]);
         });
     }
 
@@ -45,8 +41,5 @@ class PesaServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        $this->publishes([
-            __DIR__ . '/../config/laravel-pesa.php' => config_path('laravel-pesa.php'),
-        ], 'config');
     }
 }
