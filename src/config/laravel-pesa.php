@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Larvavel Openpesa Config
+    | Laravel Openpesa Config
     |--------------------------------------------------------------------------
     |
     | This file is for storing the credentials for OpenAPI services such
