@@ -17,6 +17,10 @@ class PesaServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->publishes([
+                __DIR__.'/../config/laravel-pesa.php' => config_path('laravel-pesa.php'),
+            ], 'config');
+        
         $this->app->singleton('pesa', function () {
             $public_key = Config::get('services.pesa.public_key');
             $apikey = Config::get('services.pesa.api_key');
