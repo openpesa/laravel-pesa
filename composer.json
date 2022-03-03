@@ -1,60 +1,80 @@
 {
-  "name": "pro-cms/laravel-pesa",
-  "description": "Easy OpenAPI integration for Laravel Apps",
-  "license": "MIT",
-  "homepage": "https://github.com/openpesa/laravel-pesa",
-  "type": "library",
-  "support": {
-    "issues": "https://github.com/openpesa/laravel-pesa/issues",
-    "source": "https://github.com/openpesa/laravel-pesa"
-  },
-  "authors": [
-    {
-      "name": "Alpha Olomi",
-      "email": "alphaolomi@gmail.com",
-      "role": "Developer"
+    "name": "openpesa/laravel-pesa",
+    "description": "Easy OpenAPI integration for Laravel Apps",
+    "keywords": [
+        "openpesa",
+        "mpesa",
+        "laravel",
+        "laravel-pesa"
+    ],
+    "homepage": "https://github.com/openpesa/laravel-pesa",
+    "type": "library",
+    "support": {
+        "issues": "https://github.com/openpesa/laravel-pesa/issues",
+        "source": "https://github.com/openpesa/laravel-pesa"
     },
-    {
-      "name": "Leylow Lujuo",
-      "email": "leyluj21@gmail.com",
-      "role": "Developer"
-    }
-  ],
-  "require": {
-    "php": "^7.1|^8.0",
-    "illuminate/support": "^7.0|^8.0",
-    "pro-cms/pesa": "1.0.0"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^7.1",
-    "mockery/mockery": "^1.3.1"
-  },
-  "autoload": {
-    "psr-4": {
-      "Openpesa\\Pesa\\": "src/"
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alpha Olomi",
+            "email": "alphaolomi@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Leylow Lujuo",
+            "email": "leyluj21@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/contracts": "^7.0|^8.0|^9.0",
+        "openpesa/pesa": "^0.1.0",
+        "spatie/laravel-package-tools": "^1.9.2"
     },
-    "files": [
-      "src/functions.php"
-    ]
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Openpesa\\Pesa\\Tests\\": "tests"
-    }
-  },
-  "minimum-stability": "dev",
-  "scripts": {
-    "test": "vendor/bin/phpunit",
-    "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Openpesa\\Pesa\\PesaServiceProvider"
-      ],
-      "aliases": {
-        "Pesa": "Openpesa\\Pesa\\PesaFacade"
-      }
-    }
-  }
+    "require-dev": {
+        "nunomaduro/collision": "^6.0",
+        "nunomaduro/larastan": "^2.0.1",
+        "orchestra/testbench": "^5.0|^6.23|^7.0",
+        "pestphp/pest": "^1.21",
+        "pestphp/pest-plugin-laravel": "^1.1",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Openpesa\\Pesa\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Openpesa\\Pesa\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Openpesa\\Pesa\\PesaServiceProvider"
+            ],
+            "aliases": {
+                "Pesa": "Openpesa\\Pesa\\Facades\\Pesa"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

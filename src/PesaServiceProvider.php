@@ -2,51 +2,39 @@
 
 namespace Openpesa\Pesa;
 
-use Exception;
-use Openpesa\SDK\Pesa;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\ServiceProvider;
+use Throwable;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Openpesa\Pesa\Commands\PesaCommand;
+use Openpesa\SDK\Pesa;
 
-class PesaServiceProvider extends ServiceProvider
+class PesaServiceProvider extends PackageServiceProvider
 {
-
-    /**
-     * Register the service provider.
-     *
-     * @return void
-     */
-    public function register()
+    public function configurePackage(Package $package): void
     {
+        $package
+            ->name('laravel-pesa')
+            ->hasConfigFile('laravel-pesa')
+            ->hasCommand(PesaCommand::class);
+    }
 
-
-        $this->publishes([
-            __DIR__.'/../config/laravel-pesa.php' => config_path('laravel-pesa.php'),
-        ], 'config');
-
+    public function packageRegistered()
+    {
         $this->app->singleton('pesa', function () {
-            $public_key = Config::get('laravel-pesa.services.pesa.public_key');
+            $publicKey = Config::get('laravel-pesa.public_key');
 
-            $apikey = Config::get('laravel-pesa.services.pesa.api_key');
-            $env = Config::get('laravel-pesa.services.pesa.env');
+            $apiKey = Config::get('laravel-pesa.api_key');
+            $env = Config::get('laravel-pesa.env');
 
-            if (is_null($public_key))  throw new Exception("InvalidConfiguration: PUBLIC KEY is required");
-            if (is_null($apikey)) throw new Exception("InvalidConfiguration: API KEY is required");
+            if (is_null($publicKey))  throw new Throwable("InvalidConfiguration: PUBLIC KEY is required");
+            if (is_null($apiKey)) throw new Throwable("InvalidConfiguration: API KEY is required");
 
             return new Pesa([
-                'api_key' => $apikey,
-                'public_key' => $public_key,
+                'api_key' => $apiKey,
+                'public_key' => $publicKey,
                 'env' => $env
             ]);
         });
-    }
-
-    /**
-     * Bootstrap the application events.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-
     }
 }

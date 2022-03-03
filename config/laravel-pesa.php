@@ -1,27 +1,25 @@
 <?php
 
+
 return [
 
     /*
     |--------------------------------------------------------------------------
-    | Laravel Openpesa Config
+    | Mpesa API Pubic Key
     |--------------------------------------------------------------------------
-    |
-    | This file is for storing the credentials for OpenAPI services such
-    | as API keys etc.
-    |
     */
+    'public_key' => env('PESA_PUBLIC_KEY'),
+    /*
+    |--------------------------------------------------------------------------
+    | Mpesa API Secret Key
+    |--------------------------------------------------------------------------
+    */
+    'api_key' => env('PESA_API_KEY'),
+    /*
+    |--------------------------------------------------------------------------
+    | Environment to use
+    |--------------------------------------------------------------------------
+    */
+    'env' => env('PESA_ENV'),
 
-    'services'=>[
-        'pesa'=>[
-            'public_key'=>env('PESA_PUBLIC_KEY'),
-            'api_key'=>env('PESA_API_KEY'),
-            'env'=>env('PESA_ENV'),
-        ],
-    ],
-
-
-    // 'api_key' => env('PESA_API_KEY'),
-
-    // 'public_key' => env('PESA_PUBLIC_KEY'),
 ];
