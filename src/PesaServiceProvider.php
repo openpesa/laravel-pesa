@@ -26,10 +26,10 @@ class PesaServiceProvider extends PackageServiceProvider
             $env = Config::get('laravel-pesa.env');
 
             if (is_null($publicKey)) {
-                throw new Throwable("InvalidConfiguration: PUBLIC KEY is required");
+                throw new \Exception('Please provide a public key in the config file');
             }
             if (is_null($apiKey)) {
-                throw new Throwable("InvalidConfiguration: API KEY is required");
+                throw new \Exception('Please provide an api key in the config file');
             }
 
             return new Pesa([
