@@ -7,7 +7,13 @@
 
 Easy integration to Mobile Money operators like Vodacom's Mpesa in your Laravel application.
 
+## Documentation 
 
+🚧 Work in progress
+
+## Example 
+
+For more instuction on package usage see example readme here https://github.com/alphaolomi/laravel-pesa-demo
 
 ## Installation
 
@@ -20,8 +26,25 @@ composer require openpesa/laravel-pesa
 
 ## Usage
 ### Using Facades
+
 ```php
-// 
+use Openpesa\Pesa\Facades\Pesa;
+// This route will be mapped to  =>  `your-URL/api/charge`
+Route::get('/charge', function () {
+    $response =  Pesa::c2b([
+        'input_Amount' => 5000, // Amount to be charged
+        'input_Country' => 'TZN',
+        'input_Currency' => 'TZS',
+        'input_CustomerMSISDN' => '000000000001', // replace with your phone number
+        'input_ServiceProviderCode' => '000000', // replace with your service provider code given by M-Pesa
+        'input_ThirdPartyConversationID' => 'rasderekf', // unique
+        'input_TransactionReference' => 'asdodfdferre', // unique
+        'input_PurchasedItemsDesc' => 'Test  Item'
+    ]);
+
+
+    return $response;
+});
 ```
 
 ## Testing
