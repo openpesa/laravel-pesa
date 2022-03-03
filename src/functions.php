@@ -3,11 +3,12 @@
 if (!function_exists('pesa')) {
 
     /**
-     * Pesa
+     * Get the pesa instance.
+     *
+     * @return \Openpesa\SDK\Pesa
      */
     function pesa()
     {
         return app('pesa');
     }
-
 }

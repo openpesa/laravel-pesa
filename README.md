@@ -1,52 +1,51 @@
 # Laravel Pesa
 
-> Work in Progress 🚧
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/openpesa/laravel-pesa.svg?style=flat-square)](https://packagist.org/packages/openpesa/laravel-pesa)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/openpesa/laravel-pesa/run-tests?label=tests)](https://github.com/openpesa/laravel-pesa/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/openpesa/laravel-pesa/Check%20&%20fix%20styling?label=code%20style)](https://github.com/openpesa/laravel-pesa/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/openpesa/laravel-pesa.svg?style=flat-square)](https://packagist.org/packages/openpesa/laravel-pesa)
 
-Easy intergation Mpesa OpenAPI in your Laravel applications.
+Easy integration to Mobile Money operators like Vodacom's Mpesa in your Laravel application.
+
+
 
 ## Installation
 
-Begin by adding in the package through Composer.
+You can install the package via composer:
 
-```sh
+```bash
 composer require openpesa/laravel-pesa
 ```
 
 
-If you need to modify the configuations, you can run:
-
-```sh
-php artisan vendor:publish --provider="Openpesa\PesaServiceProvider"
-```
-
 ## Usage
-
-### Simple usage example
-
-Within your controllers, before you perform a redirect, make a call to the `pesa()` function.
-
+### Using Facades
 ```php
-public function store()
-{
-    $data = [
-        'input_Amount'=>5000,
-        // ...
-    ];
-
-    try {
-        pesa()->c2b($data);
-    } catch(\Throwable $th) {
-    }
-
-    return back();
-}
+// 
 ```
 
-Full laravel example : [laravel-pesa-demo](https://github.com/alphaolomi/laravel-pesa-demo)
+## Testing
 
-### Security
+```bash
+composer test
+```
 
-If you discover any security related issues, please email [alphaolomi@gmail.com](mailto:alphaolomi@gmail.com) instead of using the issue tracker.
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
+## Contributing
+
+Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
+
+## Security Vulnerabilities
+
+Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+
+## Credits
+
+- [Alpha Olomi](https://github.com/openpesa)
+- [All Contributors](../../contributors)
 
 ## License
 
