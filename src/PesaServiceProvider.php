@@ -15,8 +15,7 @@ class PesaServiceProvider extends PackageServiceProvider
     {
         $package
             ->name('laravel-pesa')
-            ->hasConfigFile('laravel-pesa')
-            ->hasCommand(PesaCommand::class);
+            ->hasConfigFile('laravel-pesa');
     }
 
     public function packageRegistered()
