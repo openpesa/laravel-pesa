@@ -2,8 +2,8 @@
 
 namespace Openpesa\Pesa\Tests;
 
-use Orchestra\Testbench\TestCase as Orchestra;
 use Openpesa\Pesa\PesaServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {

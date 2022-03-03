@@ -1,6 +1,5 @@
 <?php
 
-use Openpesa\Pesa\Facades\Pesa;
 
 it('can test', function () {
     expect(true)->toBeTrue();
@@ -10,4 +9,3 @@ it('can test', function () {
 it('works', function () {
     expect(true)->toBeTrue();
 });
-
