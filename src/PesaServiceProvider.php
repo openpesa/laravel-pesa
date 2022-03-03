@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Config;
 use Openpesa\SDK\Pesa;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Throwable;
 
 class PesaServiceProvider extends PackageServiceProvider
 {
