@@ -1,6 +1,6 @@
 <?php
 
-if (!function_exists('pesa')) {
+if (! function_exists('pesa')) {
 
     /**
      * Get the pesa instance.
