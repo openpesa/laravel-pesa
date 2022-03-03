@@ -3,7 +3,6 @@
 namespace Openpesa\Pesa;
 
 use Illuminate\Support\Facades\Config;
-use Openpesa\Pesa\Commands\PesaCommand;
 use Openpesa\SDK\Pesa;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
